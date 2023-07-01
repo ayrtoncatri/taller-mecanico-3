@@ -1,0 +1,87 @@
+
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Trae tu vehículo {% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-api.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<script src="{% static 'app/js/jquery-3.6.4.min.js' %}"></script>  
+<script src="{% static 'app/api/api.js' %}"></script>
+
+    <!--Variables para los íconos del clima-->
+    <script>
+        var thunderstorm = "{% static 'app/animated/thunder.svg' %}";
+        var clear = "{% static 'app/animated/day.svg' %}";
+        var drizzle = "{% static 'app/animated/rainy-4.svg' %}";
+        var clouds = "{% static 'app/animated/cloudy-day-1.svg' %}";
+        var rain = "{% static 'app/animated/rainy-7.svg' %}";
+        var atmosphere = "{% static 'app/animated/weather.svg' %}";
+        var snow = "{% static 'app/animated/snowy-6.svg' %}"
+    </script>
+
+<div class="container-general">
+
+
+    <!--Contenedor de la api -->
+    <div id="contenedor">
+        <div class="row mx-auto">
+            <div id="caja1" class="col-lg-4 col-md-6 col-sm-12">
+                <h1 id="temperatura-valor"></h1>
+                <h1 id="temperatura-descripcion"></h1>
+            </div>
+            <div id="caja2" class="col-lg-4 col-md-6 col-sm-12">
+                <h2 id="ubicacion"></h2>
+                <img id="icono-animado" src="" alt="" height="128" width="128">
+            </div>
+            <div id="caja3" class="col-lg-4 col-md-6 col-sm-12">
+                <h3>Veloc. del Viento</h3>
+                <h1 id="viento-velocidad"></h1>
+            </div>
+        </div>
+    </div>
+    <!-- Término contenedor de la api -->
+    
+    <div id="caja4">
+        <h1 id="mensaje"></h1>
+    </div>
+
+    <!-- Imagenes extras -->
+    <div class="portafolio">
+        <div class="container row mx-auto">
+            <div class="galeria-port">
+                <div class="imagen-port col-lg-4 col-md-6 col-sm-12">
+                    <img src="{% static 'app/img/ruedas.jpg' %}" alt="">
+                </div>
+                <div class="imagen-port col-lg-4 col-md-6 col-sm-12">
+                    <img src="{% static 'app/img/leer.jpg' %}" alt="">
+                </div>
+                <div class="imagen-port col-lg-4 col-md-6 col-sm-12">
+                    <img src="{% static 'app/img/llave.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Termino de imagenes extras -->
+
+
+
+</div>
+ 
+    <script src="{% static 'app/js/jquery-3.6.4.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>   
+    <script>
+        $(document).ready(function(){
+            $("#mensaje").hide(3200)
+        });
+        $(document).ready(function(){
+            $("#mensaje").show(900)
+        });
+    </script>
+
+{% endblock %}

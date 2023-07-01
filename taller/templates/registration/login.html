@@ -1,0 +1,31 @@
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-login.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<br><br><div class="container">
+    
+    <h2 class="titulo">Ingresa tus credenciales</h2>
+
+    <div class="login-form">
+        <form action="" method="post">
+            {% load crispy_forms_tags %}
+
+            {% csrf_token %}
+        
+            {{ form | crispy }}
+            <div class="divbtn">
+                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Iniciar sesión</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

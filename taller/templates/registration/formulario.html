@@ -1,0 +1,37 @@
+
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Regístrate con nosotros{% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-formulario.css' %}">
+{% endblock %}
+
+{% block contenido %}  
+
+
+<br><br><div class="container">
+
+    <div class="formdiv col-lg-12 col-md-12 col-sm-12">   
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {% load crispy_forms_tags %}
+            <div class="card mx-auto" style="width: 30rem;">
+                <div class="card-body">
+                <h5 class="card-title">Complete todos los campos</h5>
+                {{ form | crispy }}
+                <a href="{% url 'principal' %}" class="card-link">Inicio</a>
+                <a href="{% url 'login' %}" class="card-link">Iniciar sesión</a>
+
+                <button class="btn btn-sm btn-primary float-end" type="submit">Registrarse</button>
+                </div>
+            </div> 
+        </form>
+
+    </div>  
+
+</div><br><br>
+{% endblock %}

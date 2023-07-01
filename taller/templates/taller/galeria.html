@@ -1,0 +1,115 @@
+
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Galería {% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-galeria.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container"> <!--Principio contenedor 1-->
+
+        <div class="row py-3">
+            <div class="imagen">
+                <div> 
+                    <img src="{% static 'app/img/mecanico1.jpg' %}" style="width: 350px;" alt="">
+                </div>
+                <div class="texto">
+                    <strong>Porque nos preocupamos...</strong><br>
+                    realizamos una revisión axhaustiva a su vehículo.
+                </div>
+            </div>
+                
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <div>
+                    <img src="{% static 'app/img/mecanico2.jpg' %}" style="width: 350px;" alt="">
+                </div>
+                <div class="texto">
+                    <strong>Confía en nosotros</strong><br>
+                    tu vehículo está en buenas manos.
+                </div>
+            </div>
+
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <div>
+                    <img src="{% static 'app/img/mecanico3.jpg' %}" style="width: 350px;" alt="">
+                </div>
+                <div class="texto">
+                    <strong>Utilizamos herramientas especializadas</strong><br>
+                    para recuperar y restaurar la estructura de tu
+                    vehículo en caso de sufrir cualquier tipo de abolladura.
+                </div>
+            </div>
+
+        </div>  <!--Fin contenedor 1-->    
+    
+
+      
+        <div class="row"> <!--Principio contenedor 2-->
+
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <img src="{% static 'app/img/mecanico4.jpg' %}" style="width: 350px;" alt="">
+                    <div class="texto">
+                        <strong>Déjalo en nuestras manos</strong><br>
+                        porque nosotros reestableceremos las condiciones
+                        normales del estado y funcionamiento de un vehículo.
+                    </div>
+            </div>
+                
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <img src="{% static 'app/img/mecanico5.jpg' %}" style="width: 350px;" alt="">
+                <div class="texto">
+                    <strong>Te aconsejamos</strong><br>
+                    cambiar el aceite de tu motor cada vez que
+                    superes los 5.000 kilómetros.
+                </div>
+            </div>
+
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <img src="{% static 'app/img/mecanico6.jpg' %}" style="width: 350px;" alt="">
+                <div class="texto">
+                    <strong>Utilizamos herramientas especializadas</strong><br>
+                    para recuperar y restaurar la estructura de tu
+                    vehículo en caso de sufrir cualquier tipo de abolladura.
+                </div>
+            </div>
+
+        </div> <!--Fin contenedor 2-->     
+      
+
+      
+        <div class="row"><!--Principio contenedor 3-->
+
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <img src="{% static 'app/img/mecanico7.jpg' %}" style="width: 350px;" alt="">
+                <div class="texto">
+                    <strong>Encuéntranos en Santiago</strong><br>
+                    Por el momento tenemos 3 sucursales en Santiago: <i>Maipú, Providencia y La Cisterna.</i>
+                </div>
+            </div>
+                
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <img src="{% static 'app/img/mecanico8.jpg' %}" style="width: 350px;" alt="">
+                <div class="texto">
+                    <strong>Dentro de los preferidos</strong><br>
+                    Estamos dentro de los 5 talleres mecánicos más buscados y recomendados de Santiago.
+                </div>
+            </div>
+
+            <div class="imagen col-lg-4 col-md-12 col-sm-12">
+                <img src="{% static 'app/img/mecanico9.jpg' %}" style="width: 350px;" alt="">
+                <div class="texto">
+                    <strong>En <i>Juan El Mecánico</i></strong><br>
+                    estimaremos el costo de recuperación para su equipo. 
+                    El diagnóstico es información de importancia en la reparación de motores.
+                </div>
+            </div>
+
+        </div>      
+</div> <!--Fin contenedor 3--> <br>
+
+{% endblock %}

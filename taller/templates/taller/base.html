@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}  
+{% load icons %}
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="icon" href="{% static 'app/img/vecteezy_car-repair-logo-template-illustrtion-suitable-for_6552825.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>{% block title %} {% endblock %}</title>    
+    {% block encabezado %} {% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+
+<body>
+    
+<nav class="navbar navbar-expand-lg bg-warning" style="height: 80px;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'app/img/logo.png' %}" width="60px" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        
+                        <a class="nav-link active" aria-current="page" href="{% url 'principal' %}" style="font-size: 20px;">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nosotros' %}" style="font-size: 20px;">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'galeria' %}" style="font-size: 20px;">Mas información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'api' %}" style="font-size: 20px;">Vehículos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tienda' %}" style="font-size: 20px;">Tienda</a>
+                    </li>
+                    
+                    <!-- {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'exit' %}" style="font-size: 20px;">Cerrar sesión</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}" style="font-size: 20px;">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registro' %}" style="font-size: 20px;">Registrarse</a>
+                    </li>
+                    {% endif %} -->
+
+                    {% if request.user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'productos' %}" style="font-size: 20px;">Productos</a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+                <ul class="navbar-nav ms-auto navbar-right-links">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item" style="text-decoration: none;">
+                            <a class="nav-link" href="{% url 'exit' %}" style="font-size: 20px;">Cerrar sesión</a>
+                            <p style="font-size: 15px; text-align: center;">Hola, {{user.username}}</p>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}" style="font-size: 20px;">Ingresar <i class="fa-solid fa-arrow-right-to-bracket" style="font-size: 15px;"></i></i> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'registro' %}" style="font-size: 20px;">Registrarse</a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                
+        </div>
+    </div>
+</nav>
+<!--Término de NavBar-->
+
+{% if messages %}
+    {% for m in messages %}
+        {{m}}
+    {% endfor %}
+{% endif %}
+
+{% block contenido %}
+{% endblock %}
+
+<footer class="pie"> <!--Inicio footer-->
+    <div class="header">
+        <div class="logo">
+            <img src="{% static 'app/img/vecteezy_car-repair-logo-template-illustrtion-suitable-for_6552825.png' %}" alt="">
+        </div>
+        <div class="section">
+            <p>Síguenos en nuestras Redes Sociales para acceder a nuestros beneficios y ofertas!</p>
+        </div>
+        <div class="redes">
+            <span class="fb"><i class="fa-brands fa-facebook"></i></span>
+            <span class="in"><i class="fa-brands fa-instagram"></i></span>
+        </div>
+        <div class="container">
+            <p class="text-light text-center p-2">
+                <strong>Juan Mecánico Services</strong> @Copyright. Derechos Reservados.
+            </p>
+        </div>   
+    </div>
+</footer>
+    
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        {% if messages %}
+            {% for m in messages %}
+                <script>
+                    Swal.fire({
+                        "title": "Felicitaciones",
+                        "text": "{{m}}",
+                        "icon":"success"
+                    })
+                </script>
+            {% endfor %}
+        {% endif %}
+</body>
+
+</html>

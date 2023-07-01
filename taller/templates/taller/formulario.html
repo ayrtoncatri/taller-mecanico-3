@@ -1,0 +1,75 @@
+
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Regístrate con nosotros{% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-formulario.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<script src="{% static 'app/js/archivo.js' %}"></script>
+<script src="{% static 'app/js/jquery-3.6.4.min.js' %}"></script>
+
+<div class="container">
+    <div class="row"> <!--Inicio formulario-->
+        <div class="title col-lg-6 col-md-6 col-sm-12">
+            <h1>Accede a beneficios de <br><strong>Juan El Mecánico</strong></h1><br>
+        </div>
+        
+        <div class="formdiv col-lg-6 col-md-6 col-sm-12">
+
+            <form class="formulario" id="form">
+                <label for="nombre">*Nombre</label><br>
+                <input type="text" class="forma mx-auto" minlength="3" maxlength="30" id="nombre"><br>
+
+                <label for="appaterno">*Apellido paterno</label><br>
+                <input type="text" class="forma" name="appaterno" minlength="5" maxlength="30" id="appaterno"><br>
+
+                <label for="appaterno">*Apellido materno</label><br>
+                <input type="text" class="forma" name="appaterno" minlength="5" maxlength="30" id="apmaterno"><br>
+
+                <label for="rut">*RUT (sin puntos y con guión)</label><br>
+                <input type="text" class="forma" name="rut" minlength="9" maxlength="10" id="rut"><br>
+
+                <label for="genero">Género</label><br>
+                <select name="genero" class="opciones" id="genero"><br>
+                    <option value="femenino">Femenino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="otro">Otro</option>
+                </select><br>
+
+                <label for="direccion">*Dirección</label><br>
+                <input type="text" class="forma" name="direccion" minlength="5" maxlength="50" id="direccion"><br>
+
+                <label for="correo">*Correo electrónico</label><br>
+                <input type="email" class="forma" name="correo" minlength="5" maxlength="50" id="correo"><br>
+
+                <label for="telefono">*Teléfono</label><br>
+                <input type="text" class="forma" name="telefono" minlength="9" maxlength="9" id="telefono"><br>
+
+                <div class="divbtn"> <!--Botón enviar-->
+                    <input type="submit" class="btn" name="enviar" value="Enviar datos" onclick="enviarDatos()">
+                </div>
+
+            </form> 
+
+            
+        </div>
+        
+    </div><!--Término formulario-->
+    
+<div class="containerError col-lg-6 col-md-12 col-sm-12">
+    <div class="errorEstilo">
+        <div id="errorDiv"></div>
+    </div>
+</div>
+<div id="error"></div>
+
+</div>
+
+
+{% endblock %}

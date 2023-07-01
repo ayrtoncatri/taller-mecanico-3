@@ -1,0 +1,49 @@
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Tienda {% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-tienda.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container"><br>
+    <div class="row">
+        <div class="col-12 align-self-center"><h1 class="display-1">Tienda</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="row" style="padding: 10px 0;">
+                <div class="col-12">
+                    <div class="row">
+                        {% for producto in productos %}
+                        <div class="col-6">
+                            <div class="card" style="height: 10rem; width: 23rem; margin: 5px 0px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{producto.nombre}}</h5>
+                                    <p class="card-text">{{producto.categoria}}</p>
+                                    <p class="card-text">{{producto.precio}}</p>
+                                    {% if producto.imagen.url %}
+                                    <p class="card-text"><img  style="width: 100px;" src="{{producto.imagen.url}}" alt="{{producto.imagen}}"></p>
+                                    {% else %}
+                                    <p class="card-text">Imagen no disponible</p>
+                                    {% endif %}
+                                    <a href="{% url 'Add' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4" style="height: 800px;">
+            {% include "taller/carrito.html" %}
+        </div>
+    </div>
+</div><br><br>
+
+{% endblock %}

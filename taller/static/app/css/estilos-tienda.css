@@ -1,0 +1,74 @@
+body{
+    font-family: 'Segoe UI', 'consolas';
+    height: max-content;
+}
+
+.container{
+    flex-direction: row;
+}
+
+.display-1{
+    background-color: #1e96fc;
+    color: white;
+}
+
+.header {
+    display: absolute;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    bottom: 0;
+}
+
+.header > .com h2{
+    font-size: 20px;
+    text-align: center;
+}
+
+.header > .redes{
+    gap: 10px;
+}
+
+.section{
+    font-size: 18px;
+    color: white;
+}
+
+div h2{
+    color: white;
+    font-size: 20px;
+}
+
+.pie{
+    background: rgba(28, 28, 28, 1);   
+    width: 100%;
+    position: relative;
+    clear: both;
+    margin-top: 0px;
+    padding-top: 0px;
+    overflow: visible; 
+ }
+
+span{
+    font-size: 23px;
+    color: white;
+}
+
+.logo img{
+    width: 100px;
+}
+
+.nav-item{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    margin-left: 30px;
+}
+
+.slide{
+    margin-top: 0px;
+}
+
+.slide img{
+    height: 80vh;
+    object-fit: cover;
+}

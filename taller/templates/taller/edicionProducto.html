@@ -1,0 +1,43 @@
+{% extends 'taller/base.html' %}
+
+{% load static %}
+
+{% block title %} Edición de Productos {% endblock %}
+
+{% block encabezado %} 
+    <link rel="stylesheet" href="{% static 'app/css/estilos-edicionProducto.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="row" style="height: 550px;">
+    <div class="col-md-4 offset-md-4"><br><br>
+        <div class="card py-4">
+            <div class="card-body">
+                <h2 class="text-dark" style="text-align: center;">Edición de productos</h2><br>
+                <form action="/editarProducto/{{producto.id}}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtNombre" name="txtNombre" value="{{producto.nombre}}" class="form-control" placeholder="Nombre" required><br>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtCategoria" name="txtCategoria" value="{{producto.categoria}}" class="form-control" placeholder="Categoría" required><br>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="numPrecio" name="numPrecio" value="{{producto.precio}}" class="form-control" placeholder="Precio" minlength="5" maxlength="10" required><br>
+                    </div>
+                    <!-- <div class="form-group">
+                        <input type="file" id="imagen" name="imagen" class="form-control"><br>
+                    </div> -->
+
+                    <!-- Botón para crear producto -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-light">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div><br><br><br>
+    </div>
+</div>
+
+{% endblock %}
