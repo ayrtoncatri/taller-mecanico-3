@@ -23,6 +23,12 @@
                 <div class="card-body">
                 <h5 class="card-title">Complete todos los campos</h5>
                 {{ form | crispy }}
+                    <style>
+                        #id_definicion{
+                            width: 300px;
+                            height: 150px;
+                        }
+                    </style>                
                 <a href="{% url 'principal' %}" class="card-link">Inicio</a>
                 <a href="{% url 'login' %}" class="card-link">Iniciar sesión</a>
 
