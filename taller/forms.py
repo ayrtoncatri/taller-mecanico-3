@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 from .models import Producto
 
 class CustomUserCreationForm(UserCreationForm):
-
+    definicion = forms.CharField(label='Explique brevemente su problema', widget=forms.Textarea(attrs={'rows': 4}))
     class Meta:
         model = User
-        fields = ['username','first_name','last_name','email','password1','password2']
+        fields = ['username','first_name','last_name','email','password1','password2','definicion']
 
 
 
